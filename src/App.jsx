@@ -6,6 +6,7 @@ import RecommendedResources from './components/RecommendedResources';
 import Dashboard from './components/Dashboard';
 import Community from './components/Community';
 import AISupport from './components/AISupport';
+import Login from './components/Login'; // Import the Login component
 
 const resources = [
   {
@@ -33,7 +34,6 @@ const resources = [
 
 const quotes = [
   "Mental health is not a destination, but a process. It's about how you drive, not where you're going.",
-  
 ];
 
 function App() {
@@ -81,6 +81,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/community" element={<Community />} />
               <Route path="/ai-support" element={<AISupport />} />
+              <Route path="/auth" element={<Login />} /> {/* Add the Login route */}
             </Routes>
           </motion.div>
         </main>

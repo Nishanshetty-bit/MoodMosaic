@@ -24,6 +24,9 @@ const Navbar = () => {
             <Link to="/ai-support" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
               AI Support
             </Link>
+            <Link to="/Auth" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
+              Get Started
+            </Link>
           </div>
         </div>
       </div>
