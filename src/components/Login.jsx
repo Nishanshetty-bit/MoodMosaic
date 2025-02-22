@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(""); // ✅ Added username field
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate(); // ✅ Hook to redirect users
@@ -50,22 +51,38 @@ export function Login() {
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
         <form>
+          {/* ✅ Username Field */}
+          <div className="mb-4">
+            <Input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full border-2 border-gray-900 rounded-lg p-2 placeholder-gray-700" // ✅ Bold outline and stretched
+              required
+            />
+          </div>
+
+          {/* ✅ Email Field */}
           <div className="mb-4">
             <Input
               type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="w-full border-2 border-gray-900 rounded-lg p-2 placeholder-gray-700" // ✅ Bold outline and stretched
               required
             />
           </div>
 
+          {/* ✅ Password Field */}
           <div className="mb-4 relative">
             <Input
               type={passwordShown ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="w-full border-2 border-gray-900 rounded-lg p-2 placeholder-gray-700" // ✅ Bold outline and stretched
               required
             />
             <button

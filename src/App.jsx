@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import RecommendedResources from './components/RecommendedResources';
-import Dashboard from './components/Dashboard';
+// import Dashboard from './components/Dashboard';
 import Community from './components/Community';
 import AISupport from './components/AISupport';
 import Login from './components/Login'; // Import the Login component
+import Resource from './components/Resource';
 
 const resources = [
   {
@@ -78,9 +79,10 @@ function App() {
                   </>
                 }
               />
-              <Route path="/dashboard" element={<Dashboard />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
               <Route path="/community" element={<Community />} />
               <Route path="/ai-support" element={<AISupport />} />
+              <Route path="/resources" element={<Resource />} /> {/* Add the Login route */}
               <Route path="/auth" element={<Login />} /> {/* Add the Login route */}
             </Routes>
           </motion.div>
