@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Brain } from 'lucide-react';
-import AISuppport from './AISuppport';
 
 const Navbar = () => {
   return (
@@ -12,18 +12,18 @@ const Navbar = () => {
             <span className="ml-2 text-xl font-bold text-gray-900">MoodMosaic</span>
           </div>
           <div className="flex space-x-4">
-            <button className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
+            <Link to="/dashboard" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
               Dashboard
-            </button>
-            <button className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
+            </Link>
+            <Link to="/resources" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
               Resources
-            </button>
-            <button className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
+            </Link>
+            <Link to="/community" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
               Community
-            </button>
-            <button className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
-              AI support
-            </button>
+            </Link>
+            <Link to="/ai-support" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium hover:cursor-pointer">
+              AI Support
+            </Link>
           </div>
         </div>
       </div>
