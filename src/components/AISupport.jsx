@@ -6,6 +6,9 @@ const AISupport = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY";
+  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateText?key=${GEMINI_API_KEY}`;
+
   const handleSendMessage = async () => {
     if (!input.trim()) return;
 
@@ -15,17 +18,21 @@ const AISupport = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/gemini', {
+      const response = await axios.post(GEMINI_API_URL, {
         prompt: input,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
 
       const aiMessage = {
-        text: response.data.response || 'No response received.',
+        text: response.data?.candidates?.[0]?.content || 'No response received.',
         sender: 'ai',
       };
       setMessages((prevMessages) => [...prevMessages, aiMessage]);
     } catch (error) {
-      console.error('Error fetching AI response:', error);
+      console.error('Error fetching AI response:', error.response?.data || error.message);
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: 'Failed to get AI response. Please try again.', sender: 'ai' },

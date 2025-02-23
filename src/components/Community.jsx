@@ -1,18 +1,11 @@
-
-
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography, // Add this import
-  Button,
-} from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import CardWithLink from "./CardWithLink";
-import PublicQueries from "./PublicQueries";
 
 const Community = () => {
-  // Icons for the cards
+  const navigate = useNavigate(); // Hook for navigation
+
   const publicIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -43,18 +36,17 @@ const Community = () => {
     </svg>
   );
 
-  // Button click handlers
+  // Navigation handlers
   const handlePublicClick = () => {
     alert("Redirecting to Public Queries...");
   };
 
   const handleDoctorClick = () => {
-    alert("Redirecting to Doctor Assistance...");
+    navigate("/doctor-support"); // Redirects to DocSupport component
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
-      {/* Use Typography component */}
       <Typography variant="h2" color="blue-gray" className="mb-8 text-center">
         Community
       </Typography>
@@ -63,7 +55,7 @@ const Community = () => {
         {/* Public Queries Card */}
         <CardWithLink
           title="Public Queries"
-          description="Ask questions and get answers from the community."
+          description=""
           icon={publicIcon}
           buttonText="Ask a Question"
           onButtonClick={handlePublicClick}
@@ -71,11 +63,11 @@ const Community = () => {
 
         {/* Doctor Assistance Card */}
         <CardWithLink
-          title="Doctor Assistance"
-          description="Get help from certified doctors for your health concerns."
+          title="Doctor Authentication"
+          description=""
           icon={doctorIcon}
-          buttonText="Ask a Doctor"
-          onButtonClick={handleDoctorClick}
+          buttonText="Get started"
+          onButtonClick={handleDoctorClick} // Navigate to DocSupport
         />
       </div>
     </div>

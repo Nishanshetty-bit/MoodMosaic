@@ -8,6 +8,7 @@ import Community from './components/Community';
 import AISupport from './components/AISupport';
 import Login from './components/Login'; // Import the Login component
 import Resource from './components/Resource';
+import DocSupport from './components/DocSupport';
 
 const resources = [
   {
@@ -84,6 +85,7 @@ function App() {
               <Route path="/ai-support" element={<AISupport />} />
               <Route path="/resources" element={<Resource />} /> {/* Add the Login route */}
               <Route path="/auth" element={<Login />} /> {/* Add the Login route */}
+              <Route path="/doctor-support" element={<DocSupport />} />
             </Routes>
           </motion.div>
         </main>
